@@ -4,8 +4,6 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
-console.log(getComputerChoice());
-
 function playRound(playerChoice, computerChoice) {
     if (playerChoice === computerChoice) {
         return "It's a tie!";
@@ -24,7 +22,7 @@ function game() {
     let playerWins = 0;
     let computerWins = 0;
     for (let i = 0; i < 5; i++) {
-        const playerChoice = prompt("Rock, Paper, or Scissors?").toLowerCase();
+        const playerChoice = prompt("Choose between Rock, Paper, or Scissors?").toLowerCase();
         
         if (!choices.includes(playerChoice)) {
             console.log("Invalid choice. Please try again.");
@@ -37,7 +35,9 @@ function game() {
 
         if (result=='You win!'){
             playerWins++
-        }else{
+        }
+
+        if (result=='You lose!'){
             computerWins++
         }
 
@@ -47,6 +47,8 @@ function game() {
     }
     if (playerWins > computerWins) {
         console.log("Congratulations! You won the game!");
+    }else if(playerWins == computerWins){
+        console.log("Oh! It's been a tough one, It's a draw");
     } else {
         console.log("Sorry, you lost the game. Best of luck next time!");
     }
